@@ -1,17 +1,11 @@
 
 services:
-  fact-api:
+  app:
     build: .
+    volumes:
+      - .:/app
     ports:
       - "8000:8000"
-    depends_on:
-      - db
-
-  # db:
-  #   image: postgres:15
-  #   environment:
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWORD: password
-  #     POSTGRES_DB: fact_api
-  #   ports:
-  #     - "5432:5432"
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1 
+      - ENV=development

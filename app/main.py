@@ -1,11 +1,10 @@
 
 from fastapi import FastAPI
 
-
 app = FastAPI()
 
-@app.get('/')
-def hello():
+@app.get('/{id}')
+def hello(id : int):
     return {
-        'message' : '10'
+       "message" : f"id:{id}"
     }
